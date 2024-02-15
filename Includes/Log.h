@@ -21,8 +21,13 @@ namespace Util
 
 
     public:
+        Level getLevel() {
+            return m_LogLevel;
+        }
         Log(const Level& level = Level::LevelError, const Date& date = { 20,12,2023 });
         void SetLogLevel(Level&& level);
+
+
         void Warn(const String& message)const;
         void Error(const String&  message)const;
         void Info(const String& message)const;

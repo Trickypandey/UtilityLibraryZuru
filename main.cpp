@@ -14,17 +14,19 @@ using namespace Util;
 
 int main()
 {
+    /*Date d{ 1,12,2024 };
+    std::cout << d.getStrDate() << d.getDay();*/
 
-   /* Log log{ Log::Level::LevelInfo, std::move(Date{1,12,2024}) };
+    Log log{ Log::Level::LevelInfo, std::move(Date{1,12,2024}) };
     log.Info("Fine!");
-    log.Warn("Carefull!");
-    log.Error("Stop!");
+    log.Warn("Carefull!" ,1);
+    /*log.Error("Stop!");
     log.ChangeDate(std::move(Date{ 10,10,2024 }));
     log.Info("Fine!");
-    log.Warn("Carefull!");
+    log.Warn("Carefull!", log.getLevel());
     Log log2{ Log::Level::LevelInfo, std::move(Date{10,11,2024}) };
     log2.Info("Fine!");
-    log2.Warn("Carefull!");
+    log2.Warn("Carefull!", log.getLevel());
     log2.Error("Stop!");
     log.Error("Stop!");*/
 
@@ -37,18 +39,18 @@ int main()
 
     /*Date d1{ 1,12,1023 };
     Date d2{ 1023,1,12 };*/
-    try
-    {
-        //Date d{ 1,13,2033 };
-        Complex c1{ 1,2 };
-        Complex c2{ 0,0 };
+    //try
+    //{
+    //    //Date d{ 1,13,2033 };
+    //    Complex c1{ 1,2 };
+    //    Complex c2{ 0,0 };
 
-        std::cout << c1 / c2;
-    }
-    catch (const MyException& e)
-    {
-        std::cout << e.what();
-    }
+    //    std::cout << c1 / c2;
+    //}
+    //catch (const MyException& e)
+    //{
+    //    std::cout << e.what();
+    //}
     /*std::string s{ "3" };
     std::string j{ "3i" };
     std::cout << s.find('i') << "\n";

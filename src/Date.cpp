@@ -5,7 +5,7 @@
 
 using namespace Util;
 
-Date::Date(int newDay, int newMonth, int newYear)  {
+Date::Date(int newDay, int newMonth, int newYear) :day{ newDay }, month{ newMonth }, year{newYear} {
 	isLeapYear();
 	if (newYear < 1 || newMonth > 12 || newMonth < 1 || daysInMonth(newMonth) < newDay)
 	{
