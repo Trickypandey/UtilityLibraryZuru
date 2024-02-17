@@ -26,6 +26,7 @@ namespace Util {
         char& operator[](size_t index);
         const char* getBuffer() const;
         void append(int number);
+        void clear();
         const char* getc_str() const { return m_Buffer.get(); }   
         friend std::ostream& operator<<(std::ostream& stream, const String& string);
     };

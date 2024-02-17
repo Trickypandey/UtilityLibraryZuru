@@ -12,16 +12,18 @@ Date::Date(int newDay, int newMonth, int newYear) :day{ newDay }, month{ newMont
 		throw  MyException("Date: Provided Date format is not correct!");
 	}
 
-	if (!previousDate.isFirstCallDone || isDateUpdated()) {
-		previousDate.preDay = day;
-		previousDate.preMonth = month;
-		previousDate.preYear = year;
-		convertTheString();
-		previousDate.isFirstCallDone = true;
+	if (isDateUpdated(*this)) {
+		previousDate = { day, month, year };
+		//convertTheString();
+		isCacheTrue = false;
 	}
 }
 
-const String Date::getStrDate() const {
+const String Date::getStrDate()  {
+	if (!isCacheTrue)
+	{
+		convertTheString();
+	}
 	return cache;
 }
 
@@ -37,20 +39,27 @@ void Date::convertTheString() {
 	cache[7] = '0' + (year / 100) % 10;
 	cache[8] = '0' + (year / 10) % 10;
 	cache[9] = '0' + year % 10;*/
-
+	std::cout << "sourabh";
+	cache.clear();
 	cache.append(day);
 	cache.append("/");
 	cache.append(month);
 	cache.append("/");
 	cache.append(year);
+	isCacheTrue = true;
+
 }
 
 void Date::isLeapYear() {
 	isLeapYearFlag = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
 
-bool Date::isDateUpdated() {
-	return ((previousDate.preDay == day) && (previousDate.preMonth == month) && (previousDate.preYear == year)) ? false : true;
+bool Date::isDateUpdated(const Date& d) {
+	if (!previousDate.isFirstCallDone) {
+		previousDate.isFirstCallDone = true;
+		return true;
+	}
+	return ((previousDate.preDay == d.day) && (previousDate.preMonth == d.month) && (previousDate.preYear == d.year)) ? false : true;
 }
 void Date::addDays(int numDays) {
 
@@ -127,5 +136,20 @@ void Date::appendInstAsChar(const int& number) {
 		cache.append("0");
 	} break;
 	}
+}
+void Date::operator=(const Date& newdate) {
+	isLeapYear();
+	if (isDateUpdated(newdate)) {
+		previousDate = { newdate.day, newdate.month, newdate.year };
+		previousDate.preMonth = newdate.day;
+		previousDate.preYear = newdate.day;
+		this->day = newdate.day;
+		this->month = newdate.month;
+		this->year = newdate.year;
+		//convertTheString();
+		previousDate.isFirstCallDone = true;
+		isCacheTrue = false;
+	}
+
 }
 

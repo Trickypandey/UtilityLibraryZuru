@@ -28,9 +28,9 @@ namespace Util
         void SetLogLevel(Level&& level);
 
 
-        void Warn(const String& message)const;
-        void Error(const String&  message)const;
-        void Info(const String& message)const;
+        void Warn(const String& message);
+        void Error(const String&  message);
+        void Info(const String& message);
         void ChangeDate(const Date& date);
     };
 }

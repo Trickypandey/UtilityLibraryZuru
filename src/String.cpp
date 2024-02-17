@@ -99,3 +99,8 @@ void String::append(int number) {
     this->append(result);
     delete[] result;
 }
+
+void String::clear() {
+    m_Buffer.reset(); 
+    m_Size = 0; 
+}

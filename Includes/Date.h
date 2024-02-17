@@ -18,6 +18,7 @@ namespace Util {
         int year;
         String cache;
         bool isLeapYearFlag;
+        bool isCacheTrue = false;
         PreviousDate previousDate;
 
 
@@ -49,14 +50,15 @@ namespace Util {
         }
 
         void isLeapYear();
-        bool isDateUpdated();
+        bool isDateUpdated(const Date& d);
         void convertTheString();
-        const String getStrDate() const;
+        const String getStrDate() ;
         void addDays(int numDays);
         void addMonths(int numMonths);
         void addYears(int numYears);
         void appendInstAsChar(const int& number);
         int daysInMonth(int month) const;
+        void operator=(const Date& newdate);
     };
 }
 

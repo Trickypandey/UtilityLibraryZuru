@@ -19,7 +19,18 @@ int main()
 
     Log log{ Log::Level::LevelInfo, std::move(Date{1,12,2024}) };
     log.Info("Fine!");
-    log.Warn("Carefull!" ,1);
+    log.Error("Error!");
+    log.Warn("Carefull!" );
+    log.ChangeDate(Date{ 1,11,2024 });
+    log.Warn("Carefull!" );
+    log.Info("Fine!");
+    log.Error("Error!");
+    log.ChangeDate(Date{ 2,11,2024 });
+    log.Warn("Carefull!" );
+    log.ChangeDate(Date{ 1,11,2024 });
+    log.Info("Fine!");
+    log.Error("Error!");
+    
     /*log.Error("Stop!");
     log.ChangeDate(std::move(Date{ 10,10,2024 }));
     log.Info("Fine!");
