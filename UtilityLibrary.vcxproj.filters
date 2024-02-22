@@ -9,6 +9,7 @@
     <ClCompile Include="src\ComplexString.cpp" />
     <ClCompile Include="src\Complex.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="src\FileHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\Date.h" />
@@ -16,5 +17,8 @@
     <ClInclude Include="Includes\ComplexString.h" />
     <ClInclude Include="Includes\Complex.h" />
     <ClInclude Include="Includes\Exception.h" />
+    <ClInclude Include="Includes\FileHelper.h" />
+    <ClInclude Include="Includes\LogHandler.h" />
+    <ClInclude Include="Includes\ChronoDateImpl.h" />
   </ItemGroup>
 </Project>

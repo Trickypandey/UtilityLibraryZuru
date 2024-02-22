@@ -1,36 +1,54 @@
 #include "../Includes/Log.h"
-#include "../Includes/Date.h"
-#include <iostream>
 
-using namespace Util;
+using  Util::Log;
+    //Log::Log(std::string name, const Level& level)
+        
 
-Log::Log(const Level& level, const Date& date) : m_date(date), m_LogLevel(level) {}
-void Log::SetLogLevel(Level&& level)
-{
-    m_LogLevel = level;
-}
+    //Log::Log(std::string name, const Level& level, const std::string& filename)
+       
+    //Log::~Log() 
 
+   
 
-void Log::Warn(const String& message) 
-{
-    if (m_LogLevel >= Level::LevelWarning)
+ /*   void Log::printArgs() const {
+        std::cout << std::endl;
+    }*/
 
-        std::cout << "[Warning]: " << message << "DATE" << m_date.getStrDate() << std::endl;
-}
+    
 
-void Log::ChangeDate(const Date& date)
-{
-    this->m_date = date;
-}
+    std::string Log::getLevelStringColored(const Level& level) const  {
+        std::string strLevel;
 
-void Log::Error(const String& message) 
-{
-    if (m_LogLevel >= Level::LevelError)
-        std::cout << "[Error]: " << message << "DATE" << m_date.getStrDate() << std::endl;
-}
+        switch (level) {
+        case Log::Log::Level::LevelError:
+            strLevel = "\033[0;31mError\033[0m"; // Red color
+            break;
+        case Log::Level::LevelWarning:
+            strLevel = "\033[1;35mWarning\033[0m"; // Magenta color
+            break;
+        case Log::Level::LevelInfo:
+            strLevel = "\033[1;36mInfo\033[0m"; // Cyan color
+            break;
+        }
 
-void Log::Info(const String& message) 
-{
-    if (m_LogLevel >= Level::LevelInfo)
-        std::cout << "[Info]: " << message << "DATE" << m_date.getStrDate() << std::endl;
-}
+        return strLevel;
+    }
+
+    std::string Log::getLevelString(const Level& level) const {
+        std::string strLevel;
+
+        switch (level) {
+        case Level::LevelError:
+            strLevel = "Error";
+            break;
+        case Level::LevelWarning:
+            strLevel = "Warning";
+            break;
+        case Level::LevelInfo:
+            strLevel = "Info";
+            break;
+        }
+
+        return strLevel;
+    }
+

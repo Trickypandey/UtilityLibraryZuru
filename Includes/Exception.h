@@ -1,12 +1,15 @@
-#include "String.h"
-using namespace Util;
+#ifndef EXCEPTION_H
+#define EXCEPTION_H
+#include<string>
+
 class MyException : public std::exception {
 private:
-    String message;
+    std::string message;
 public:
-    MyException(const String& msg) : message(msg) {}
+    MyException(const std::string& msg) : message(msg) {}
 
     virtual const char* what() const noexcept override {
-        return message.getc_str();
+        return message.c_str();
     }
 };
+#endif 
